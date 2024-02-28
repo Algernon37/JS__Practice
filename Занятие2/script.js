@@ -5,7 +5,6 @@ if (!userAnswer) {
 } else {
     alert((userAnswer === "ёлка") ? "that is right!" : "that is wrong!");
 }
-
 const button = document.getElementById("button")
 button.addEventListener("click", function () {
     alert("You have clicked me!?")
