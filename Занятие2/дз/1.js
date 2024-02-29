@@ -13,8 +13,8 @@
 в консоль "Одно или более значений некорректно.".
 */
 
-let positive = +prompt("Введите положительное число: ");
-let negative = +prompt("Введите отрицательное число: ");
+const positive = +prompt("Введите положительное число: ");
+const negative = +prompt("Введите отрицательное число: ");
 
 if (Number.isNaN(positive) || Number.isNaN(negative) || positive <= 0 || negative >= 0) {
     console.log("Одно или более значений некорректно.");
