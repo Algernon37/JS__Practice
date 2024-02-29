@@ -23,10 +23,10 @@
 Подсказка: Возможно, вам понадобится округление чисел и оператор %.
 */
 
-let integerNumber = +prompt("Введите целое число: ");
-let hundred = Math.trunc(integerNumber / 100 % 10)
-let ten = Math.trunc(integerNumber / 10 % 10)
-let unit = Math.trunc(integerNumber % 10)
+const integerNumber = +prompt("Введите целое число: ");
+const hundred = Math.trunc(integerNumber / 100 % 10);
+const ten = Math.trunc(integerNumber / 10 % 10);
+const unit = Math.trunc(integerNumber % 10);
 
 console.log(`В числе ${integerNumber} количество сотен: ${hundred}, десятков: ${ten}, единиц: ${unit}`);
 
