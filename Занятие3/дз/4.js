@@ -20,19 +20,19 @@ console.log(sum(2, 6)); должно вывести число 8 в консол
 
 const sum = (a, b) => {
     return a + b;
-}
+};
 
 function difference(a, b) {
     return (a > b) ? a - b : b - a;
-}
+};
 
 const multiplication = (a, b) => {
     return a * b;
-}
+};
 
 const division = (a, b) => {
     return (b === 0) ? console.log('Деление на ноль невозможно') : a / b;
-}
+};
 
 console.log(sum(2, 6));
 console.log(difference(2, 6));
