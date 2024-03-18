@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="block">
+    </div>
+    <div class="elem">
+        <img src="photo.png" alt="photo">
+        <div class="content">
+          <h2 class="heading">Lorem, ipsum dolor.</h2>
+          <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, ea!</p>
+        </div>
+    </div>
+    <div class="item">
+        <div class="elem">
+          <div class="info">
+            <h2 class="subtitle">Lorem, ipsum dolor.</h2>
+          </div>
+        </div>
+    </div>  
+    <form action="#">
+        <input type="text">
+        <button class="btn">Отправить</button>
+    </form>
+    <script>
+        "use strict";
+
+        const block = document.querySelector('.block');
+        const item = document.createElement('div');
+
+        item.setAttribute('class', 'item');
+        block.appendChild(item);   
+        item.textContent = "Элемент внутри";
+        item.style.color = 'blue';
+        item.style.border = '1px solid black';
+        item.style.backgroundColor='#f8f8f8';
+        item.style.padding = '16px';
+        item.setAttribute('class', 'item_1');
+
+        const textEl = document.querySelector('.text');
+        console.log(textEl.previousElementSibling);
+        console.log(textEl.parentElement);
+        console.log(document.querySelector('img'));
+        console.log(document.querySelector('.elem').parentElement);
+
+        const h2El = document.querySelector('h2'); 
+        const allParents = []; 
+        let parent = h2El.parentNode; 
+
+        while (parent) {
+            allParents.push(parent);
+            parent = parent.parentNode;
+        }
+        console.log(allParents); 
+        
+        const btnEl = document.querySelector('.btn');
+        const inputEl = document.querySelector('input');
+        const formEl = document.querySelector('form');
+        let h2El; // Объявляем переменную h2El в глобальной области видимости
+
+        btnEl.addEventListener('click', function(event) {
+            event.preventDefault(); // Добавляем вызов метода preventDefault()
+            if (!h2El) {
+                if (inputEl.value.length > 0) {
+                    inputEl.style.border = '3px solid green';
+                    setTimeout(() => alert('Отправленно!'), 1000) ;
+                } else {
+                    h2El = document.createElement('h2'); // Присваиваем созданный элемент переменной h2El
+                    h2El.textContent = 'вы не заполнили поле ввода';
+                    formEl.appendChild(h2El);  
+                    inputEl.style.border = '3px solid red';
+                }
+            } else {
+                inputEl.style.border = '1px solid black';
+                h2El.remove();
+                h2El = null;
+            }
+        });
+
+    </script>
+</body>
+</html>
