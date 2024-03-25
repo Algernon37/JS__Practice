@@ -72,12 +72,10 @@
             const formEl = document.querySelector('form');
             const buttonEl = formEl.querySelector('button');
             buttonEl.type = 'submit';
-
             const inputEls = formEl.querySelectorAll('.form-control');
 
             formEl.addEventListener('submit', function (e) {
                 e.preventDefault();
-
                 inputEls.forEach(element => {
                     if (element.value === ''){
                         element.placeholder = 'Заполните поле';
@@ -88,7 +86,6 @@
                         element.style.border= '2px solid green';
                     };
                 });
-                
                 if (inputEls[0].classList.contains('error') || inputEls[1].classList.contains('error')) {
                     console.log('Форма не отправлена');
                 } else {
