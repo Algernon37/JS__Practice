@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product-box{
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .product{
+            width: 250px;
+            border: 1px solid #000;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-box">
+        <div class="product">
+            <img class="product__img" src="photo.jpg" alt="photo">
+            <div class="product__content">
+                <a class="product__name" href="product.html">Товар из HTML</a>
+                <p class="product__text">Lorem ipsum dolor sit.</p>
+                <p class="product__price">55</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        "use strick";
+
+        // const productData = [
+        //     {
+        //         name: 'new name 1',
+        //         price: 80,
+        //     },
+        //     {
+        //         name: 'new name 2',
+        //         price: 75,
+        //     },
+        // ];
+        
+        // const productNameLink = document.querySelector('.product__name');
+        // const productsPrice = document.querySelector('.product__price');
+        // productNameLink.textContent = productData[0].name;
+        // productsPrice.textContent = productData[0].price;
+        
+        const prodactData = [{
+                src: 'img.png',
+                alt: 'img object data',
+                name: 'New name object',
+                link: 'product.html',
+                des: 'product`s description from obj',
+                price: 21000 
+            },
+            {
+                src: 'img2.png',
+                alt: 'img object data new2',
+                name: 'New name2 object',
+                link: 'product2.html',
+                des: 'product`s description2 from obj',
+                price: 21000 
+            },
+            {
+                src: 'img3.png',
+                alt: 'img object data new3',
+                name: 'New name3 object',
+                link: 'product3.html',
+                des: 'product`s description3 from obj',
+                price: 31000 
+            }
+        ];
+
+        const productBox = document.querySelector('.product-box');
+
+        prodactData.forEach(product => {
+            const productEl = document.createElement('div');
+            productEl.classList.add('product');
+
+            const productImg = document.createElement('img');
+            productImg.classList.add('product__img');
+            productImg.setAttribute('alt', product.alt);
+            productImg.src = product.src;
+            
+            const productContent = document.createElement('div');
+            productContent.classList.add('product__content');
+
+            const productLink = document.createElement('a');
+            productLink.href = product.link;
+            productLink.textContent = product.name;
+
+            const productText = document.createElement('h2');
+            productText.classList.add('product__text');
+            productText.textContent = product.des;
+
+            const productPrice = document.createElement('p');
+            productPrice.classList.add('product__price');
+            productPrice.textContent = product.price;
+
+
+            productEl.appendChild(productLink);
+            productEl.appendChild(productText);
+            productEl.appendChild(productImg);
+            productEl.appendChild(productPrice);
+            productEl.appendChild(productContent);
+            productBox.appendChild(productEl);
+        });
+    </script>
+</body>
+</html>
