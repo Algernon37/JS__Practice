@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            display: flex;
+            flex-wrap:wrap;
+            gap: 20px;
+        }
+        .wrapper{
+            border: 1px solid #000;
+            padding: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+
+    </div>
+    <script src="./data.js"></script>
+    <script>
+        "use strick";
+        const newData = JSON.parse(data);
+        console.log(newData);
+
+        const divEl = document.querySelector('.content');
+        
+        newData.forEach(user => {
+            divEl.insertAdjacentHTML('beforeend', `
+                <div class = 'wrapper'>
+                    <h2>${user.name}</h2>
+                    <h3>${user.username}</h3>
+                    <p>${user.email}</p>
+                    <p>${user.address}</p>
+                    <a href="tel:+${user.phone}">${user.phone}</a>
+                </div>
+            `);
+        });
+
+    </script>
+</body>
+</html>

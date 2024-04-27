@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use script";
+
+        //""Получение данных о пользователе""
+
+        function getUserData(id, Url) {
+            return fetch(Url + id) 
+            .then(response => {
+                return response.json(); 
+            })
+            .catch(e => {
+                return e.message;
+            });
+        }
+
+        getUserData("123", 'https://example.com/users/')
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+
+        //""Отправка данных на сервер""
+
+        function saveUserData(data) {
+            return fetch('https://example.com/users/', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json' 
+                },
+                body: JSON.stringify(data) 
+            })
+            .then(response => {
+                return response.json(); 
+            })
+            .catch(e => {
+                return e.message;
+            });
+        }
+
+        const user = {
+            name: 'John Smith',
+            age: 30,
+            email: 'john@example.com'
+        };
+
+        saveUserData(user)
+        .then(data => {
+            console.log('User data saved successfully:', data); 
+        })
+        .catch(error => {
+            console.log('Error:', error); 
+        });
+
+
+        //""Изменение стиля элемента через заданное время""
+
+        function changeStyleDelayed(elementId, time) {
+            let element = document.getElementById(elementId);
+            setTimeout(() => {
+                element.style.backgroundColor = 'green';  
+            }, time)
+        }
+
+        changeStyleDelayed('myElement', 2000); 
+    </script>
+</body>
+</html>

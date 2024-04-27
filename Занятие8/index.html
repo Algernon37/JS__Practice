@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul class="menu">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <script>
+        "use strick";
+
+        const ulEl = document.querySelector('.menu');
+
+        function main(e) {
+            console.log(e.target, e.currentTarget);
+        };
+
+        ulEl.addEventListener('click', main)
+
+        const buttonsEl = document.querySelectorAll('button');
+
+        buttonsEl.forEach(element => {
+            element.addEventListener('click', function (e) {
+                const target = e.target;
+                console.log(target);
+            });
+        });
+
+        let count = 0;
+
+        buttonEl.onclick = function () {
+            console.log('click js');  
+            console.log(++count);  
+        };
+
+        buttonEl.addEventListener('click', function (e) {
+            console.log(e.target);
+            console.log(e.currentTarget);
+        });
+
+        function clickFunction() {
+            console.log('click js');  
+            console.log(++count);  
+        };
+
+        buttonEl.onclick = clickFunction;
+
+        buttonEl.addEventListener('click', clickFunction);
+
+
+    </script>
+</body>
+</html>

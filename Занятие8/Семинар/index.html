@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>Первый - горелый</li>
+        <li>Второй - золотой</li>
+        <li>Третий - на танке</li>
+    </ul>
+
+    <script>
+        "use strick";
+
+        const buttonEl = document.querySelector('button');
+        window.onload = () => console.log('Страница загружена');
+
+        buttonEl.onclick = () => console.log('Click');
+
+        buttonEl.addEventListener('click', function (e) {
+            console.log('событие addEventListener');   
+        })
+
+        const body = document.querySelector('body');
+
+        (function createButtons(params) {
+            let i = 0;
+            while (i < 5) {
+                let elButton = body.appendChild(document.createElement('button'));
+                i++;
+                elButton.textContent = i;
+            };
+            body.addEventListener('click', function (e) {
+                if(e.target.nodeName === "BUTTON"){
+                    console.log(`Нажали на кнопку ${e.target.textContent}`);
+                };
+            });
+        })();
+
+        (function workWithButtons(params) {
+            const btns = body.querySelectorAll('button');
+            let count = 0;
+            let firstClick = true;
+            
+            btns[3].addEventListener('click', function (e) {
+                console.log(`На кнопку ${e.target.textContent} нажали: ${++count}`);
+            });
+
+            btns[4].addEventListener('click', function (e) {
+                if (firstClick) {
+                    btns[4].textContent = `Изменили текст ${e.target.textContent}`;
+                    firstClick = false;
+                } else {
+                    console.log(`Просто нажали на кнопку ${e.target.textContent}`);
+                }
+            }); 
+        })();
+
+        (function AddButtons(params) {
+            let firstClick = true;
+            const btn = document.createElement("button");
+            btn.textContent = 'click me';
+            body.insertAdjacentElement('beforeend', btn);
+            
+            btn.addEventListener('click', function (elButton) {
+                if (firstClick) {
+                    btn.insertAdjacentHTML('afterend', `<h1>Новый заголовок</h1>`);
+                    firstClick = false;
+                };
+            });
+
+            const btn2 = document.createElement("button");
+            btn2.textContent = 'remove';
+            body.insertAdjacentElement('beforeend', btn2);
+            btn2.addEventListener('click', function (){
+                document.querySelector('h1').remove();
+            });
+
+            const btn3 = document.createElement("button");
+            btn3.textContent = 'Наведение';
+            body.insertAdjacentElement('beforeend', btn3);
+
+            btn3.addEventListener('mouseover', function (){
+                console.log('Бахнул наведение');
+            });
+
+            btn3.addEventListener('mouseout', function (){
+                console.log('Не бахнул наведение');
+            });
+
+        })();
+
+        (function addWorkWithUl() {
+            const ulEl = document.querySelector('ul');
+            const btn = document.createElement('button');
+            btn.textContent = 'Добавить';
+            body.appendChild(btn);
+
+            btn.addEventListener('click', function (e) {
+                ulEl.insertAdjacentHTML('beforeend',`<li>тили тили бом</li>`);
+            });
+
+
+            const btn2 = document.createElement('button');
+            btn2.textContent = 'Удалить';
+            body.appendChild(btn2);
+            btn2.addEventListener('click', function (e) {
+                ulEl.querySelector('li:first-child') ? ulEl.querySelector('li:first-child').remove() : null;
+            });
+
+            const btn3 = document.createElement('button');
+            btn3.textContent = 'Лобавить кнопке класс';
+            body.appendChild(btn3);
+            btn3.addEventListener('click', function (e) {
+                btn3.classList.add('click');
+            });
+
+        })();
+    </script>
+</body>
+</html>

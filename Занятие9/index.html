@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form>
+        <label><input type="radio" name="propagation-control" value="stopPropagation">Stop propagation</label>
+        <label><input type="radio" name="propagation-control" value="stopImmediatePropagation">Stop Immediate propagation</label>
+    </form> 
+    <ul>
+        <li>Первый</li>
+        <li>Второй</li>
+        <li>Третий</li>
+    </ul> -->
+
+    <form action="#">
+        <h2>Form</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input id="checkbox" type="checkbox" class="checkbox">
+        <label for="checkbox">
+            agree
+        </label>
+        <div class="error">
+
+        </div>
+        <button type="submit">Send</button>
+    </form>
+    <script>
+        "use strick";
+
+        // const form = document.querySelector('form');
+        // const list = document.querySelector('ul');
+
+        // list.addEventListener('click', (e) => {
+        //     console.log('В первом UL в фазе захвата')
+        //     const propagationControlMethodName = form.elements['propagation-control'].value
+        //     if (propagationControlMethodName) {
+        //         e[propagationControlMethodName]()
+        //     }
+        // }, true);
+
+        // list.addEventListener('click', () => {
+        //     console.log('Во втором UL в фазе захвата')
+        // }, true);
+
+        // list.addEventListener('click', () => {
+        //     console.log('В первом UL в фазе всплытия')
+        // });
+
+        // Array.from(list.children).forEach((child) => {
+        //     child.addEventListener('click', () => {
+        //         console.log('В каждом LI в фазе всплытия')
+        //     });
+        // });
+
+
+        const inputEl = document.querySelector('#checkbox');
+        const formEl = document.querySelector('form');
+        const errorEl = formEl.querySelector('.error');    
+
+        inputEl.addEventListener('click', function (e) {
+            console.log(e.target.checked);
+        });
+        
+        formEl.addEventListener('submit', function (e) {
+             if (inputEl.checked ) {
+                console.log('go ahead');
+                errorEl.textContent = '';
+            } else {
+                errorEl.textContent = 'Do not forget check';
+                e.preventDefault();
+            };
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Задание 1: ""Управление библиотекой книг"" Реализуйте класс Book, представляющий книгу, со следующими свойствами и методами:
+        
+        class Book {    
+            constructor(title,author,pages){
+                this.title = title;
+                this.author = author;
+                this.pages = pages;
+            }
+
+            displayInfo(){
+                console.log(`Название: ${this.title}, Автор: ${this.author}, ${this.pages} страниц`);
+            }
+        };
+        const ForWhomTheBellTolls = new Book("For Whom the Bell Tolls","Ernest Hemingway",496);
+        ForWhomTheBellTolls.displayInfo();
+
+
+        //Задание 2: ""Управление списком студентов""
+
+        class Student {    
+            constructor(name,age,grade){
+                this.name = name;
+                this.age = age;
+                this.grade = grade;
+            }
+
+            displayInfo(){
+                console.log(`
+                Name: ${this.name} 
+                Age: ${this.age} 
+                Grade: ${this.grade}`);
+            }
+        }
+
+        const student1 = new Student("John Smith", 16, "10th grade");
+        student1.displayInfo();
+        const student2 = new Student("Jane Doe", 17, "11th grade");
+        student2.displayInfo();
+    </script>
+</body>
+</html>  
